@@ -89,8 +89,8 @@ button:active{
 }
 
 #grid-box{
-    height: 500px;
-    width: 500px;
+    height: 640px;
+    width: 640px;
     border: slategray solid 3px;
     margin: 40px auto;
 }
@@ -113,7 +113,7 @@ button:active{
 .grid-pixel{
     display: inline-block;
     box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .disableselect {
@@ -126,10 +126,47 @@ button:active{
                                     not supported by any browser */
   }
   
-  .disabledrag{
+.disabledrag{
      -webkit-user-drag: none;
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
      user-drag: none;
   }
+
+#color-box{
+    font-size: 0;
+    background:grey;
+    padding: 20px;
+    display: inline-block;
+  }
+
+#btn-black,
+#btn-d-grey,
+#btn-grey,
+#btn-l-grey,
+#btn-white {
+      border-radius: 0;
+      margin: 0 auto;
+      border: 3px solid transparent;
+  }
+
+#btn-black{
+    background-color: black;
+}
+#btn-d-grey{
+    background-color: dimgrey;
+}
+#btn-grey{
+    background-color: darkgrey;
+}
+#btn-l-grey{
+    background-color: lightgrey;
+}
+#btn-white{
+    background-color: white;
+}
+
+button.selected{
+    border-color: orange !important;
+}

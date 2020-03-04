@@ -1,17 +1,23 @@
 const gridBox = document.getElementById('grid-box');
 const gridPixel = document.getElementsByClassName('grid-pixel');
 const resetButton = document.getElementById('reset-grid');
-let mouseDown = 0;
+const rainbowButton = document.getElementById('rainbow-button');
+let mouseDown = false;
+let rainbowMode = false;
 let currentColor = "black";
 
 resetButton.addEventListener('click', createGrid);
+rainbowButton.addEventListener('click', () => {
+    if (!rainbowMode){
+        rainbowMode = true;
+    }else{
+        rainbowMode = false;
+    }
+    rainbowButton.classList.toggle('selected');
+});
 
 //Run main function
 gridBuilder(64);
-
-
-
-
 
 
 
@@ -58,10 +64,10 @@ function colorPicker(){
 function gridBuilder(gridSize){
     //Mouse hold listener
     gridBox.onmousedown = () => {
-        mouseDown = 1;
+        mouseDown = true;
     }
     gridBox.onmouseup = () => {
-        mouseDown = 0;
+        mouseDown = false;
     }
 
     colorPicker();
@@ -81,6 +87,9 @@ function gridBuilder(gridSize){
     //Adds coloring functionality to grid's pixels *ADD AFTER THE GRID IS BUILT*
     for (let i = 0; i < gridPixel.length; i++){
         gridPixel[i].addEventListener('mouseover', () => {
+            if (rainbowMode){
+                currentColor = getRandomColor();
+            }
             if (mouseDown){
                 gridPixel[i].style.background = currentColor;
             }
@@ -105,3 +114,45 @@ function createGrid(){
 function removeGrid(){
     gridBox.innerHTML = "";
 }
+
+function getRandomColor(){
+    const hexadecimal = "0123456789ABCDEF"
+    let randomColor = "#";
+    for(let i = 0; i < 6; i++){
+        randomColor+= hexadecimal.charAt(Math.floor(Math.random()*16));
+    }
+    console.log(randomColor);
+    return randomColor;
+}
+
+/*
+function darken(color, percentage){
+    let modColor = color.replace("#", "");
+    let R = modColor.substring(0,1);
+    let G = modColor.substring(2,3);
+    let B = modColor.substring(4,5);
+    R = parseInt(R, 16);
+    G = parseInt(G, 16);
+    B = parseInt(B, 16);
+    if(R > percentage){
+        R = R-percentage;
+    }else{
+        R = 0;
+    }
+    if(G > percentage){
+        G = G-percentage;
+    }else{
+        G = 0;
+    }
+    if(B > percentage){
+        B = B-percentage;
+    }else{
+        B = 0;
+    }
+    R = R.toString(16);
+    G = G.toString(16);
+    B = B.toString(16);
+    modColor = "#"+R+G+B;
+    return modColor;
+}
+*/

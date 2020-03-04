@@ -56,6 +56,10 @@ table {
 --- END OF RESET CSS ---
 */
 
+body{
+    background-color: antiquewhite;
+}
+
 .wrapper {
     width: 960px;
     margin: 0 auto;
@@ -65,6 +69,7 @@ table {
 h1{
     font-size: 5em;
     line-height: 2em;
+    color: burlywood;
 }
 
 button::-moz-focus-inner {
@@ -93,6 +98,7 @@ button:active{
     width: 640px;
     border: slategray solid 3px;
     margin: 40px auto;
+    background-color: white;
 }
 
 .flex-column{
@@ -112,8 +118,9 @@ button:active{
 
 .grid-pixel{
     display: inline-block;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow:inset 0px 0px 0px 1px rgba(0, 0, 0, 0.03);
+    -moz-box-shadow:inset 0px 0px 0px 1px rgba(0, 0, 0, 0.03);
+    box-shadow:inset 0px 0px 0px 1px rgba(0, 0, 0, 0.03);
 }
 
 .disableselect {
@@ -136,7 +143,7 @@ button:active{
 
 #color-box{
     font-size: 0;
-    background:grey;
+    background:sandybrown;
     padding: 20px;
     display: inline-block;
   }
@@ -148,7 +155,6 @@ button:active{
 #btn-white {
       border-radius: 0;
       margin: 0 auto;
-      border: 3px solid transparent;
   }
 
 #btn-black{
@@ -168,5 +174,7 @@ button:active{
 }
 
 button.selected{
-    border-color: orange !important;
+    -webkit-box-shadow:inset 0px 0px 0px 3px peru;
+    -moz-box-shadow:inset 0px 0px 0px 3px peru;
+    box-shadow:inset 0px 0px 0px 3px peru;
 }
